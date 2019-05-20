@@ -1,0 +1,14 @@
+runtime: python36
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  script: main.app
+- url: /.*
+  script: main.app
+  login: required
+
+env_variables:
+  MODEL_NAME: 'wine_quality_prediction'
+  ENDPOINT: '35.234.79.201:65327/transform'

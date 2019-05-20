@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Reusable Form Demo</title>
+
+       <link rel="stylesheet" media="screen" href ="static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+       <link rel="stylesheet" href="static/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+       <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+ 
+
+
+    </head>
+    <body>
+<div class="container">
+ 
+ <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="/">Home</a>
+                    </li>
+                 
+                    <li role="presentation"><a href="showSignUp">   Sign Up</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Python Flask App</h3>
+        </div>
+
+
+ 
+  <h2>Enter wine characteristics</h2>
+  <form  action="" method="post" role="form">
+    {{ form.csrf }}
+    <div class="form-group">
+      <label for="Alcohol">Wine details:</label>
+      <input type="text" class="form-control" id="Alcohol" name="Alcohol" placeholder="Alcohol">
+
+              <label for="acidity" class="sr-only">Fixed acidity</label>
+        <input type="text" name="acidity" id="acidity" class="form-control" placeholder="Fixed acidity" required autofocus>
+
+        <label for="sugar" class="sr-only">Residual sugar</label>
+        <input type="text" name="sugar" id="sugar" class="form-control" placeholder="Residual sugar" required autofocus>  
+
+        <label for="Sulphates" class="sr-only">Sulphates</label>
+        <input type="text" name="Sulphates" id="Sulphates" class="form-control" placeholder="Sulphates" required>
+
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+ 
+  <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+ 
+        {% for message in messages %}
+            {% if "Error" not in message[1]: %}
+                <div class="alert alert-info">
+                <strong>Success! </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+ 
+            {% if "Error" in message[1]: %}
+                <div class="alert alert-warning">
+                {{ message[1] }}
+                </div>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        {% endwith %}
+ 
+</div>
+<br>      
+</div>
+</div>
+    </body>
+</html>

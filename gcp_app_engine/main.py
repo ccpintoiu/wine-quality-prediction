@@ -13,9 +13,9 @@ from os import environ
 from flask import Flask, render_template, flash, request
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 
-import dill as pickle 
-import numpy as np
-import pandas as pd
+#import dill as pickle 
+#import numpy as np
+#import pandas as pd
 import requests
 import pprint
 

@@ -1,4 +1,4 @@
-runtime: python36
+runtime: python27
 api_version: 1
 threadsafe: true
 
@@ -10,5 +10,5 @@ handlers:
   login: required
 
 env_variables:
-  MODEL_NAME: 'wine_quality_prediction'
+  MODEL_NAME: 'wq_mleap-bundle-1.3.zip'
   ENDPOINT: '35.234.79.201:65327/transform'

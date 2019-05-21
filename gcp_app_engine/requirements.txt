@@ -1,6 +1,7 @@
-
 Flask==0.12.2
 WTForms
 requests
 pprint
+numpy
+requests_toolbelt
 google-api-python-client==1.6.2

@@ -16,9 +16,23 @@ from wtforms import Form, TextField, TextAreaField, validators, StringField, Sub
 #import dill as pickle 
 #import numpy as np
 #import pandas as pd
-import requests
+#import requests
 import pprint
 
+endpoint = 'http://35.234.79.201:65327/transform'
+headers = {'accept': 'application/json', 'content-type': 'application/json'}
+obj2 = '{"schema": {"fields": [{"name": "fixed acidity", "type": "double"}, {"name": "volatile acidity", "type": "double"}, {"name": "citric acid", "type": "double"}, {"name": "residual sugar", "type": "double"}, {"name": "chlorides", "type": "double"}, {"name": "free sulfur dioxide", "type": "double"}, {"name": "total sulfur dioxide", "type": "double"}, {"name": "density", "type": "double"}, {"name": "pH", "type": "double"}, {"name": "sulphates", "type": "double"}, {"name": "alcohol", "type": "double"}]}, "rows": [[1, 0.2, 0.4, 1, 0.058, 30.0, 93.0, 0.99322, 3.03, 1, 1]]}'
+
+#import requests
+#import requests_toolbelt.adapters.appengine
+#requests_toolbelt.adapters.appengine.monkeypatch()
+
+from requests_toolbelt.adapters import appengine
+appengine.monkeypatch(validate_certificate=False)
+import requests
+
+r = requests.post(endpoint, headers=headers, data=obj2)
+print (r)
 
 app = Flask(__name__)
 

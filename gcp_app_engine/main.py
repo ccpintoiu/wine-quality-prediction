@@ -38,8 +38,9 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176b'
 headers = {'accept': 'application/json', 'content-type': 'application/json'}
-endpoint = 'http://35.234.79.201:65327/transform'
-
+#endpoint = 'http://35.234.79.201:65327/transform'
+endpoint = environ['ENDPOINT']		   
+		   
 class ReusableForm(Form):
     Alcohol = TextField('Alcohol:', validators=[validators.required()])
     acidity = TextField('acidity:', validators=[validators.required()])
